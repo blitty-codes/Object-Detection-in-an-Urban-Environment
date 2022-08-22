@@ -141,20 +141,30 @@ python inference_video.py --labelmap_path label_map.pbtxt --model_path experimen
 ## Submission Template
 
 ### Project overview
-This section should contain a brief description of the project and what we are trying to achieve. Why is object detection such an important component of self driving car systems?
+This project has been made by udacity. In this project you apply everything you've learnt on the first course.
+It consists on optimizing a CNN that detects three types of objects on urban images.
 
-### Set up
-This section should contain a brief description of the steps to follow to run the code for this repository.
+Objects:
+* Cyclists
+* Pedestrians
+* Vehicles
+
+Also on this project we use techniques like augmentation to train the model on a small dataset making it a much more better dataset having different scenarios.
 
 ### Dataset
 #### Dataset analysis
-This section should contain a quantitative and qualitative description of the dataset. It should include images, charts and other visualizations.
+As you can see on [EDA](Exploratory%20Data%20Analysis.ipynb) we've done some statiscics where we can deduce that the dataset is very disproportionate, where the highest number of objects are vehicles compared to pedestrians and cyclists, where there are very little cyclists. This is not good because the model may not detect cyclists on different positions.
+Also the dataset is pretty good because there are a lot of different scenarios, like sunny days, foggy days, night days and also different places with a lot of objects like if you where on the center of the city and also the contrary.
+
 #### Cross validation
-This section should detail the cross validation strategy and justify your approach.
+Using the reference which is the first CNN with the normal model without any customization. Using tensorflow and tensorboard. Using tensorboard we can see that the model does not overfit. We can see that the training loss is minimizing which is nice on the other side we have the learning rate which starts to go down on a certain point which is not quite good. This can be because the model was trained on 100 images and those images maybe of the same kind.
 
 ### Training
 #### Reference experiment
-This section should detail the results of the reference experiment. It should includes training metrics and a detailed explanation of the algorithm's performances.
+Using the reference model we can see that it performs well, not optimum but good. We can see that the learning rate starts to decay this can mean that the model is getting on a local minima. Another thing to mention is that the loss stars to decay on the 500 so that's nice.
 
 #### Improve on the reference
-This section should highlight the different strategies you adopted to improve your model. It should contain relevant figures and details of your findings.
+Experiment0 is not a good model because it does not train well, on each epoch the loss keeps growing with a lot of speed, this is because the augmentation didn't go well, so some changes where done for experiment1.
+On Experiment1 we have a good model trained on different types of scenarios with augmentation playing with:
+* brightness, contrast: having a chance of getting a night scenario from a sunny day or the contrary.
+* parches, crops and horizontal: it can help because not always you are going to have a high quality image or the camera can be broken giving bad images.

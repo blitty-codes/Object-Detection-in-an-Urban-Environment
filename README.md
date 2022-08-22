@@ -168,3 +168,15 @@ Experiment0 is not a good model because it does not train well, on each epoch th
 On Experiment1 we have a good model trained on different types of scenarios with augmentation playing with:
 * brightness, contrast: having a chance of getting a night scenario from a sunny day or the contrary.
 * parches, crops and horizontal: it can help because not always you are going to have a high quality image or the camera can be broken giving bad images.
+
+#### Reference
+![Loss](./experiments/reference/Loss.png)
+![Learning Rate && Steps per Second](./experiments/reference/learningrate_stepsPerSec.png)
+
+#### Experimen0
+![Loss](./experiments/experiment0/Loss.png)
+![Learning Rate && Steps per Second](./experiments/experiment0/learningrate_stepsPerSec.png)
+
+#### Experimen1
+![Loss](./experiments/experiment1/Loss.png)
+![Learning Rate && Steps per Second](./experiments/experiment1/learningrate_stepsPerSec.png)
